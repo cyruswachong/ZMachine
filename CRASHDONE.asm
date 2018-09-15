@@ -30,12 +30,6 @@ B crash3
 
 
 crash3:
-
-
-;@ Print the invalid intruction and its location in HEX
-;@ Should probably loop back to execute or something
-
-
 MOV R9, #32
     STR R9, [R10]
     MOV R9, #64
@@ -178,15 +172,7 @@ printOpcode1:
 	SUBS R7, #4
 	POPMI {R15}
 	B printOpcode1
-
-
-
-
-
-
 B done
-
-
 
 letter_op:
 PUSH {R14}
@@ -200,9 +186,6 @@ ADD R11, #48
 STR R11, [R10]
 POP {R15}
 
-
-
-
 letter:
 PUSH {R14}
 ADD R9, #87
@@ -214,18 +197,6 @@ PUSH {R14}
 ADD R9, #48
 STR R9, [R10]
 POP {R15}
-
-
-
-
-
-
-
-
-
-
-
-
 
 done:
 b done
