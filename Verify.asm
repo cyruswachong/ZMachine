@@ -1,0 +1,31 @@
+.global VERIFY_1
+
+VERIFY_1:
+PUSH {R6-R12}
+MOV R7, #64
+LDR R11, =#2000000
+MOV R10, #0
+
+addup:
+LDR R9, =Zmemory
+LDRB R8, [R9, R7]
+ADD R10, R8
+ADD R7, #1
+CMP R7, R11
+BGE andit
+BLT addup
+
+andit:
+LDR R12, =#0xffff
+AND R10, R10, R12
+LDRB R12, [R9, #28]
+LSL R12, #8
+LDRB R6, [R9, #29]
+ADD R12, R6
+
+CMP R12, R10
+POP {R6-R12}
+BEQ branchCall
+BNE crash
+
+
