@@ -61,4 +61,3 @@ longBranch:
     ADD R4, R4, R9
     SUB R4, #2
     POP {R15}
-    ;@ not sure what to do
